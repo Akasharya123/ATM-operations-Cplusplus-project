@@ -1,0 +1,89 @@
+/* Online C++ Compiler and Editor */
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+
+using namespace std;
+
+#include <bits/stdc++.h>
+
+
+
+
+void mainmenu(void)
+{
+    cout<<"\n*******    Main Menu   *******";
+    cout<<"\n1)  Check Balance";
+    cout<<"\n2)  Deposit";
+    cout<<"\n3)  Withdrawal";
+    cout<<"\n4)  Exit\n\n\n";
+    
+}
+
+
+int main()
+{
+system("CLS");
+int pass,pin,option,balance,deposit,withdraw;
+balance=10000;
+for(int i=0;i<4;i++)
+    {cout<<"\n\nEnter Password:";
+
+       cin>>pass;
+
+        if(pass==1234 && i<3)
+        {
+        mainmenu();
+        break;
+        }
+        else if(pass!=1234){cout<<"\nWrong Password\nTry again";
+        
+        if(i==3)
+           {
+            cout<<"\nExceeded max attemps.\n";
+            exit(0);
+           }
+        }
+    }
+choice:    
+cin>>option;
+switch(option)
+{
+    case 1: cout<<"\n****    Balance    ****";
+            cout<<"\nYour Balance is :  "<<balance<<"Rs\n\n";
+            mainmenu();
+            goto choice;
+            break;
+    case 2: cout<<"\n****    Deposit    ****";
+            cout<<"\nEnter Amount   :   ";
+            cin>>deposit;
+            balance = balance + deposit;
+            cout<<"\nYour Balance is :  "<<balance<<"Rs\n\n";
+
+            mainmenu();
+            goto choice;
+            break;
+    case 3: cout<<"\n****    Withdrawal    ****";
+            cout<<"\nEnter Amount   :   ";
+            cin>>withdraw;
+            if(withdraw<=balance)
+            {
+            cout<<"\nWithdrawal Successful.....   ";
+            balance = balance-withdraw;
+            cout<<"\nYour Balance is :  "<<balance<<"Rs\n\n";
+
+            }
+         
+            mainmenu();
+            goto choice;
+            break;
+    case 4: exit(0);
+    default: cout<<"\ninvalid option!!!!";
+    mainmenu();
+    
+}
+exit(0);
+
+
+
+}
